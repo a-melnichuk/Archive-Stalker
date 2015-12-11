@@ -262,7 +262,7 @@ class Archive_Stalker_Widget extends WP_Widget {
     //update widget's content via ajax
     function update_widget_container()
     {   //get posts offset
-        $offset = $_REQUEST["offset"];
+        $offset = $_POST["offset"];
         $options = self::get_options();
         //query posts given offset from allowed categories
         $posts_desc = array(
@@ -274,8 +274,8 @@ class Archive_Stalker_Widget extends WP_Widget {
               'category__in'=> $options["categories"],
               'posts_per_page' => $options["posts_per_page"],
         );
-        $month = $_REQUEST["month"];
-        $year = $_REQUEST["year"];
+        $month = $_POST["month"];
+        $year = $_POST["year"];
         
         //if month and year are sent, query posts from month of given year
         if($month && $year)
