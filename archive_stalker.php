@@ -1,11 +1,11 @@
 <?php
 /*
  *	Plugin Name: Archive Stalker
- *	Plugin URI: http://a-melnichuk-projects.hol.es/
+ *	Plugin URI: http://melnichuk.tk
  *	Description: Provides eased browsing of archived data
  *	Version: 1.0
  *	Author: Alex Melnichuk
- *	Author URI: http://a-melnichuk-projects.hol.es/
+ *	Author URI: http://melnichuk.tk
  *	License: GPL2
  *
 */
@@ -25,8 +25,8 @@ class Archive_Stalker
     
     function add_scripts()
     {
-        wp_enqueue_style( 'archive_stalker_frontend_css', ARST_PLUGIN_URL.'/archive_stalker.css' );
-        wp_register_script( "archive_stalker", ARST_PLUGIN_URL.'/archive_stalker.js', array('jquery') );
+        wp_enqueue_style( 'archive_stalker_frontend_css', ARST_PLUGIN_URL . '/archive_stalker.css' );
+        wp_register_script( "archive_stalker", ARST_PLUGIN_URL . '/archive_stalker.js', array('jquery') );
         wp_localize_script( 'archive_stalker', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ),  ));        
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-ui-draggable' );
