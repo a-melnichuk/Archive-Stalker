@@ -171,7 +171,9 @@ class Archive_Stalker_Widget extends WP_Widget {
     {
         global $wpdb;
         //get allowed categories
-        $cats = implode(',',self::get_options()['categories']);
+        $options = self::get_options();
+
+        $cats = implode(',',$options['categories']);
         //query year,month,month name from categories
         return $wpdb->get_results(
             "SELECT DISTINCT
@@ -193,11 +195,14 @@ class Archive_Stalker_Widget extends WP_Widget {
     //get html content of given post
     function get_post_html()
     {
+        $cat = get_the_category();
+        $cat_name = $cat[0]->name;
+
         return array(
             'id'=> 'archive-stalker-close-window-' . get_the_ID(),
             'title'=> get_the_title(),
             'author'=> get_the_author(),
-            'category'=> get_the_category()[0]->name,
+            'category'=> $cat_name,
             'date'=> get_the_date(),
             'content'=>  get_the_content()
         );
